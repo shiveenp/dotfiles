@@ -1,32 +1,7 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
 HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -43,7 +18,7 @@ export HSTR_CONFIG=hicolor
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='code'
+  export EDITOR='subl'
 fi
 
 # Personal aliases
@@ -58,6 +33,11 @@ alias gpush="git push"
 
 # hstr aliases
 alias hh="hstr"
+
+# jdk aliases
+alias switchjdk8="asdf global java adopt-openjdk-8u212-b03"
+alias switchjdk11="asdf global java adoptopenjdk-11.0.9+11"
+alias switchjdk12="asdf global java adopt-openjdk-12.0.2+10.3"
 
 # misc aliases
 alias zshrc="vi ~/.zshrc"
@@ -98,13 +78,9 @@ function fs() {
 	fi;
 }
 
-
-# Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
-
 # Rust development
 source $HOME/.cargo/env
 
-# starship prompt
-eval "$(starship init zsh)"
+# pure prompt
+autoload -U promptinit; promptinit
+prompt pure

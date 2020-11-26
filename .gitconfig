@@ -3,5 +3,8 @@
   email = shiveenpandita@gmail.com
 [push]
   default = current
+  autocrlf = input
 [color]
 	ui = true
+[pull]
+   ff = only
