@@ -39,6 +39,7 @@ echo "Brewing some apps 🍻"
 brew tap homebrew/cask-versions
 brew tap AdoptOpenJDK/openjdk
 brew tap homebrew/cask-fonts
+brew tap cjbassi/ytop
 
 declare -a brew_cask_apps=(
   '1password'
@@ -88,6 +89,8 @@ declare -a brew_cli_tools=(
   'tldr'
   'git'
   'fd'
+  'dust'
+  'grex'
   'go'
   'gradle'
   'ripgrep'
@@ -98,12 +101,21 @@ declare -a brew_cli_tools=(
   'postgres'
   'screenfetch'
   'node'
+  'npm'
   'zlib'
   'nmap'
 )
 
 for tool in "${brew_cli_tools[@]}"; do
   brew install "$tool"
+done
+
+declare -a npm_global_installs=(
+  'pure-prompt'
+)
+
+for app in "${npm_global_installs[@]}"; do
+  npm install --global "$tool"
 done
 
 echo "Finished brewing! Cheers ✅"
