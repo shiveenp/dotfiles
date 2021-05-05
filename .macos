@@ -140,11 +140,10 @@ declare -a mas_apps=(
   '1294126402' # HEIC Converter (1.7.0)
   '1320666476' # Wipr (1.16)
   '1449412482' # Reeder (4.2.5)
-  '1482920575' # DuckDuckGo Privacy Essentials (1.4.2)
   '1448916662' # Step Two (2.5.1)
   '497799835' # Xcode (11.5)
   '1263070803' # Lungo (1.7.0)
-  '639968404' # Parcel (6.4)
+  '904280696' # Things (3.13.5)
 )
 
 for app in "${mas_apps[@]}"; do
