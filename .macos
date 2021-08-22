@@ -63,6 +63,7 @@ declare -a brew_cask_apps=(
   'transmission'
   'appcleaner'
   'colorpicker-skalacolor'
+  'dash'
 )
 
 for app in "${brew_cask_apps[@]}"; do
@@ -126,17 +127,12 @@ echo "Installing MAC apps"
 
 declare -a mas_apps=(
   '409203825' # Numbers (6.2)
-  '1351639930' # Gifski (2.1.0)
   '409201541' # Pages (8.2)
-  '1147396723' # WhatsApp (2.2027.10)
   '409183694' # Keynote (10.1)
-  '526298438' # Lightshot screenshot (2.22)
   '1289583905' # Pixelmator Pro (1.6.4)
-  '1284863847' # Unsplash Wallpapers (1.4.2)
   '441258766' # Magnet (2.4.5)
   '540348655' # Monosnap (3.6.11)
   '1470584107' # Dato (1.13.2)
-  '1502527999' # Jiffy (1.2.2)
   '1294126402' # HEIC Converter (1.7.0)
   '1320666476' # Wipr (1.16)
   '1449412482' # Reeder (4.2.5)
@@ -144,6 +140,7 @@ declare -a mas_apps=(
   '497799835' # Xcode (11.5)
   '1263070803' # Lungo (1.7.0)
   '904280696' # Things (3.13.5)
+  '775737590' # iA Writer (5.6.11)
 )
 
 for app in "${mas_apps[@]}"; do
