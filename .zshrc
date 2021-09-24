@@ -1,18 +1,23 @@
-export ZSH="$HOME/.oh-my-zsh"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+
+export ZSH="/Users/shiveenp/.oh-my-zsh"
 HIST_STAMPS="mm/dd/yyyy"
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-eval $(thefuck --alias)
 # HSTR Settings
 export HISTFILE=~/.zsh_history
 export HSTR_CONFIG=hicolor
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -40,10 +45,10 @@ alias switchjdk11="asdf global java adoptopenjdk-11.0.9+11"
 alias switchjdk12="asdf global java adopt-openjdk-12.0.2+10.3"
 
 # misc aliases
-alias zshrc="vi ~/.zshrc"
+alias zshrc="subl ~/.zshrc"
 alias reload="source ~/.zshrc"
 alias copy_ssh="pbcopy < $HOME/.ssh/id_rsa.pub"
-alias upda='brew update; brew outdated; brew upgrade; brew cleanup; mas upgrade'
+alias sysupdate='brew update; brew outdated; brew upgrade; brew cleanup; mas upgrade'
 alias clr="clear"
 alias rimraf="rm -rf"
 alias ls="exa"
@@ -81,6 +86,5 @@ function fs() {
 # Rust development
 source $HOME/.cargo/env
 
-# pure prompt
-autoload -U promptinit; promptinit
-prompt pure
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
