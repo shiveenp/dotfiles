@@ -111,14 +111,6 @@ for tool in "${brew_cli_tools[@]}"; do
   brew install "$tool"
 done
 
-declare -a npm_global_installs=(
-  'pure-prompt'
-)
-
-for app in "${npm_global_installs[@]}"; do
-  npm install --global "$tool"
-done
-
 echo "Finished brewing! Cheers ✅"
 ###############################################################################
 # Install Mac App Store apps                                                  #
@@ -158,10 +150,13 @@ echo "Configuring and cleaning the shell prompt ✨"
 # Set ZSH as the default shell
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+# Add nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+
 # Set powerlevel10k as the default theme
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-# Add zhs plugins
+# Add zsh plugins
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
