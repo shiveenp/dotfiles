@@ -67,7 +67,7 @@ declare -a brew_cask_apps=(
 )
 
 for app in "${brew_cask_apps[@]}"; do
-  brew cask install "$app"
+  brew install --cask "$app"
 done
 
 declare -a brew_cli_tools=(
