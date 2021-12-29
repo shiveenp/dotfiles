@@ -2,8 +2,8 @@
 # https://github.com/FoxxMD/intellij-jvm-options-explained
 # https://intellij-support.jetbrains.com/hc/en-us/articles/206544869-Configuring-JVM-options-and-platform-properties
 
--Xms2g
--Xmx4g
+-Xms4g
+-Xmx8g
 -XX:ReservedCodeCacheSize=512m
 -XX:+UseCompressedOops
 -Dfile.encoding=UTF-8

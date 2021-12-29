@@ -52,7 +52,7 @@ declare -a brew_cask_apps=(
   'caffeine'
   'slack'
   'docker'
-  'postman'
+  'insomnia'
   'iterm2'
   'fork'
   'stats'
@@ -72,6 +72,7 @@ done
 
 declare -a brew_cli_tools=(
   'awscli'
+  'libpq'
   'cowsay' # i mean, why not?
   'ytop'
   'ctop'
@@ -98,13 +99,12 @@ declare -a brew_cli_tools=(
   'thfuck'
   'httpie'
   'hugo'
-  'redis'
-  'postgres'
   'screenfetch'
   'node'
   'npm'
   'zlib'
   'nmap'
+  'doctl'
 )
 
 for tool in "${brew_cli_tools[@]}"; do
@@ -286,34 +286,8 @@ defaults write com.apple.CrashReporter DialogType -string "none"
 # Set Help Viewer windows to non-floating mode
 defaults write com.apple.helpviewer DevMode -bool true
 
-# Reveal IP address, hostname, OS version, etc. when clicking the clock
-# in the login window
-#sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
-
-# Disable Notification Center and remove the menu bar icon
-#launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
-
-# Disable automatic capitalization as it’s annoying when typing code
-#defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
-
-# Disable smart dashes as they’re annoying when typing code
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-
-# Disable automatic period substitution as it’s annoying when typing code
-defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
-
-# Disable smart quotes as they’re annoying when typing code
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-
-# Set a custom wallpaper image. `DefaultDesktop.jpg` is already a symlink, and
-# all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
-#rm -rf ~/Library/Application Support/Dock/desktoppicture.db
-#sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
-#sudo ln -s /path/to/your/image /System/Library/CoreServices/DefaultDesktop.jpg
-
 
 ###############################################################################
 # 📱 Dock
