@@ -24,7 +24,7 @@ echo "Creating dev directory"
 mkdir -p "${HOME}/code"
 echo "Dev directory successfully created ✅"
 
-echo "Creating screenshots directoryon desktop"
+echo "Creating screenshots directory on desktop"
 mkdir -p "${HOME}/Desktop/Screenshots"
 echo "Screenshots directory successfully created ✅"
 
