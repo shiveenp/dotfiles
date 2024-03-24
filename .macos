@@ -44,7 +44,6 @@ brew tap cjbassi/ytop
 declare -a brew_cask_apps=(
   '1password'
   'alfred'
-  'adoptopenjdk8'
   'visualvm'
   'google-chrome'
   'firefox'
@@ -105,6 +104,7 @@ declare -a brew_cli_tools=(
   'zlib'
   'nmap'
   'doctl'
+  'minikube'
 )
 
 for tool in "${brew_cli_tools[@]}"; do
