@@ -21,7 +21,7 @@ echo "Hello $(whoami)! Let's get your MAC setup 🚀"
 ###############################################################################
 
 echo "Creating dev directory"
-mkdir -p "${HOME}/code"
+mkdir -p "${HOME}/Developer"
 echo "Dev directory successfully created ✅"
 
 echo "Creating screenshots directory on desktop"
@@ -36,33 +36,39 @@ echo "Installing homebrew 🍺"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 echo "Brewing some apps 🍻"
-brew tap homebrew/cask-versions
 brew tap AdoptOpenJDK/openjdk
-brew tap homebrew/cask-fonts
 brew tap cjbassi/ytop
+brew tap homebrew/cask-fonts
+brew tap homebrew/cask-versions
 
 declare -a brew_cask_apps=(
   '1password'
   'alfred'
-  'visualvm'
-  'google-chrome'
-  'firefox'
-  'rocket'
-  'caffeine'
-  'slack'
+  'appcleaner'
+  'bartender'
+  'bookends'
+  'cleanshot'
+  'dash'
+  'devonthink'
   'docker'
+  'folx'
+  'fork'
+  'google-chrome'
+  'iina'
   'insomnia'
   'iterm2'
-  'fork'
-  'stats'
   'jetbrains-toolbox'
-  'visual-studio-code'
+  'rocket'
+  'slack'
+  'stats'
   'sublime-text'
-  'vlc'
-  'transmission'
-  'appcleaner'
-  'colorpicker-skalacolor'
-  'dash'
+  'zed'
+  'hazel'
+  'istats-menus'
+  'spotify'
+  'zed'
+  'zoom'
+  'protonvpn'
 )
 
 for app in "${brew_cask_apps[@]}"; do
@@ -71,40 +77,23 @@ done
 
 declare -a brew_cli_tools=(
   'awscli'
-  'libpq'
-  'cowsay' # i mean, why not?
-  'ytop'
-  'ctop'
+  'neofetch'
+  'btop'
   'htop'
-  'hub'
-  'parallel'
   'bat'
-  'exa'
-  'fd'
-  'wifi-password'
   'zsh'
-  'zsh-syntax-highlighting'
-  'zsh-autosuggestions'
   'hstr'
   'mas'
-  'tldr'
   'git'
-  'fd'
-  'dust'
-  'grex'
-  'go'
-  'gradle'
-  'ripgrep'
-  'thfuck'
-  'httpie'
+  'fzf'
   'hugo'
-  'screenfetch'
   'node'
   'npm'
-  'zlib'
-  'nmap'
   'doctl'
   'minikube'
+  'cloudnuke'
+  'kubernetes-cli'
+  'speedtest-cli'
 )
 
 for tool in "${brew_cli_tools[@]}"; do
@@ -118,22 +107,37 @@ echo "Finished brewing! Cheers ✅"
 echo "Installing MAC apps"
 
 declare -a mas_apps=(
-  '409203825' # Numbers (6.2)
-  '409201541' # Pages (8.2)
-  '409183694' # Keynote (10.1)
-  '1289583905' # Pixelmator Pro (1.6.4)
-  '441258766' # Magnet (2.4.5)
-  '540348655' # Monosnap (3.6.11)
-  '1470584107' # Dato (1.13.2)
-  '1294126402' # HEIC Converter (1.7.0)
-  '1320666476' # Wipr (1.16)
-  '1449412482' # Reeder (4.2.5)
-  '1448916662' # Step Two (2.5.1)
-  '497799835' # Xcode (11.5)
-  '1263070803' # Lungo (1.7.0)
-  '904280696' # Things (3.13.5)
-  '775737590' # iA Writer (5.6.11)
-)
+  '904280696'   # Things
+  '1320666476'  # Wipr
+  '1448916662'  # Step Two
+  '1529448980'  # Reeder
+  '1496543317'  # Book Tracker
+  '497799835'   # Xcode
+  '310633997'   # WhatsApp
+  '1569813296'  # 1Password for Safari
+  '1423210932'  # Flow
+  '1593408455'  # Anybox
+  '1289583905'  # Pixelmator Pro
+  '441258766'   # Magnet
+  '1444636541'  # Photomator
+  '1303222628'  # Paprika Recipe Manager 3
+  '1474335294'  # GoodLinks
+  '1444383602'  # Goodnotes
+  '899247664'   # TestFlight
+  '1508732804'  # Soulver 3
+  '409201541'   # Pages
+  '1055511498'  # Day One
+  '640199958'   # Developer
+  '1160435653'  # AutoMounter
+  '470158793'   # Keka
+  '639968404'   # Parcel
+  '1289197285'  # MindNode
+  '408981434'   # iMovie
+  '409203825'   # Numbers
+  '1091189122'  # Bear
+  '775737590'   # iA Writer
+  '409183694'   # Keynote
+  '1502839586'  # Hand Mirror
 
 for app in "${mas_apps[@]}"; do
   mas install "$app"
@@ -153,8 +157,8 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 # Add nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 
-# Set powerlevel10k as the default theme
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+# Set spaceship as the default theme
+echo "source $(brew --prefix)/opt/spaceship/spaceship.zsh" >>! ~/.zshrc
 
 # Add zsh plugins
 
@@ -163,16 +167,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 # Remove outdated versions from the cellar.
 brew cleanup
-
-###############################################################################
-# Install Rust                                                 #
-###############################################################################
-
-echo "Installing Rusty boi"
-
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-echo "Rusty boi should be good to go 👍🏽"
 
 ###############################################################################
 # General UI/UX                                                               #
