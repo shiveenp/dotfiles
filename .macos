@@ -151,19 +151,14 @@ echo "All most used MAC apps installed ✅"
 
 echo "Configuring and cleaning the shell prompt ✨"
 
-# Set ZSH as the default shell
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-# Add nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-
-# Set spaceship as the default theme
-echo "source $(brew --prefix)/opt/spaceship/spaceship.zsh" >>! ~/.zshrc
-
-# Add zsh plugins
-
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+echo "Installing Fisher and Plugins 🐟"
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+fisher install jethrokuan/z
+fisher install jorgebucaran/hydro
+fisher install jorgebucaran/autopair.fish
+fisher install patrickf1/fzf.fish
+fisher installjorgebucaran/nvm.fish
+echo "Fish installation done!"
 
 # Remove outdated versions from the cellar.
 brew cleanup
