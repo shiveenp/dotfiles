@@ -36,8 +36,6 @@ echo "Installing homebrew 🍺"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 echo "Brewing some apps 🍻"
-brew tap AdoptOpenJDK/openjdk
-brew tap cjbassi/ytop
 brew tap homebrew/cask-fonts
 brew tap homebrew/cask-versions
 
@@ -46,29 +44,23 @@ declare -a brew_cask_apps=(
   'alfred'
   'appcleaner'
   'bartender'
-  'bookends'
   'cleanshot'
-  'dash'
-  'devonthink'
   'docker'
   'folx'
   'fork'
   'google-chrome'
   'iina'
   'insomnia'
-  'iterm2'
   'jetbrains-toolbox'
   'rocket'
   'slack'
-  'stats'
   'sublime-text'
   'zed'
   'hazel'
   'istats-menus'
   'spotify'
-  'zed'
   'zoom'
-  'protonvpn'
+  'nordvpn'
 )
 
 for app in "${brew_cask_apps[@]}"; do
@@ -78,7 +70,6 @@ done
 declare -a brew_cli_tools=(
   'awscli'
   'neofetch'
-  'btop'
   'htop'
   'bat'
   'zsh'
@@ -94,6 +85,7 @@ declare -a brew_cli_tools=(
   'cloudnuke'
   'kubernetes-cli'
   'speedtest-cli'
+  'pure'
 )
 
 for tool in "${brew_cli_tools[@]}"; do
@@ -138,6 +130,7 @@ declare -a mas_apps=(
   '775737590'   # iA Writer
   '409183694'   # Keynote
   '1502839586'  # Hand Mirror
+  )
 
 for app in "${mas_apps[@]}"; do
   mas install "$app"
@@ -149,16 +142,14 @@ echo "All most used MAC apps installed ✅"
 # Configure installed apps                                                    #
 ###############################################################################
 
-echo "Configuring and cleaning the shell prompt ✨"
+echo "Configuring shell customizations and prompt ✨"
 
-echo "Installing Fisher and Plugins 🐟"
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-fisher install jethrokuan/z
-fisher install jorgebucaran/hydro
-fisher install jorgebucaran/autopair.fish
-fisher install patrickf1/fzf.fish
-fisher installjorgebucaran/nvm.fish
-echo "Fish installation done!"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/joshskidmore/zsh-fzf-history-search ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-fzf-history-search
+
+echo "Shell setup done ✅"
 
 # Remove outdated versions from the cellar.
 brew cleanup
