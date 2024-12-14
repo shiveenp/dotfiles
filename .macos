@@ -61,6 +61,9 @@ declare -a brew_cask_apps=(
   'spotify'
   'zoom'
   'nordvpn'
+  'via'
+  'discord'
+  'slack'
 )
 
 for app in "${brew_cask_apps[@]}"; do
