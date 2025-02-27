@@ -41,16 +41,16 @@ brew tap homebrew/cask-versions
 
 declare -a brew_cask_apps=(
   '1password'
+  '1password-cli'
   'alfred'
+  'arq'
   'appcleaner'
   'bartender'
   'cleanshot'
   'docker'
   'folx'
-  'fork'
   'google-chrome'
   'iina'
-  'insomnia'
   'jetbrains-toolbox'
   'rocket'
   'slack'
@@ -61,9 +61,23 @@ declare -a brew_cask_apps=(
   'spotify'
   'zoom'
   'nordvpn'
+  'shottr'
+  'obsidian'
   'via'
   'discord'
   'slack'
+  'busycal'
+  'busycontacts'
+  'font-jetbrains-mono'
+  'font-commit-mono'
+  'hazel'
+  'via'
+  'monodraw'
+  'calibre'
+  'netnewswire'
+  'devonthink'
+  'todoist'
+  'lm-studio'
 )
 
 for app in "${brew_cask_apps[@]}"; do
@@ -276,7 +290,6 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # 📱 Dock
 ###############################################################################
 
-defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-delay -float 0.05
 defaults write com.apple.dock autohide-time-modifier -float 0.25
 defaults write com.apple.dock magnification -bool true

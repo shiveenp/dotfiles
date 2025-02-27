@@ -13,7 +13,9 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-fzf-history-search 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
 # Aliases
+
 # System
 alias zshrc="vim ~/.zshrc"
 alias reload="source ~/.zshrc"
@@ -27,11 +29,16 @@ alias gpush="git push"
 ## docker
 alias dc="docker-compose"
 
+## terraform
+alias tf="terraform"
+
+# SSH
+alias ssh_homelab="ssh shiveenp@192.168.4.231"
+
 # Utility Functions
 function porter {
   command lsof -i:"$@"
 }
+
 # NVM Integration
-export NVM_DIR="$HOME/.nvm"
-   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+"~/.zshrc" 50L, 1136B
