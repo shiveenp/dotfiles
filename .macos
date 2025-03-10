@@ -245,9 +245,6 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
-# Always show scrollbars
-defaults write -g AppleShowScrollBars -string "Always"
-
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
 
