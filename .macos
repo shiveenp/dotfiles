@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# ~/.macos — https://mths.be/macos
 # Modified by Shiveen Pandita
 # Run without downloading: curl https://raw.githubusercontent.com/shavz/dotty/master/.macos | bash
 
@@ -36,118 +35,22 @@ echo "Installing homebrew 🍺"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 echo "Brewing some apps 🍻"
-brew tap homebrew/cask-fonts
-brew tap homebrew/cask-versions
-
-declare -a brew_cask_apps=(
-  '1password'
-  '1password-cli'
-  'alfred'
-  'arq'
-  'appcleaner'
-  'bartender'
-  'cleanshot'
-  'docker'
-  'folx'
-  'google-chrome'
-  'iina'
-  'jetbrains-toolbox'
-  'rocket'
-  'slack'
-  'sublime-text'
-  'zed'
-  'hazel'
-  'istats-menus'
-  'spotify'
-  'zoom'
-  'nordvpn'
-  'shottr'
-  'obsidian'
-  'via'
-  'discord'
-  'slack'
-  'busycal'
-  'busycontacts'
-  'font-jetbrains-mono'
-  'font-commit-mono'
-  'hazel'
-  'via'
-  'monodraw'
-  'calibre'
-  'netnewswire'
-  'devonthink'
-  'todoist'
-  'lm-studio'
-)
-
-for app in "${brew_cask_apps[@]}"; do
-  brew install --cask "$app"
-done
-
-declare -a brew_cli_tools=(
-  'awscli'
-  'neofetch'
-  'htop'
-  'bat'
-  'zsh'
-  'hstr'
-  'mas'
-  'git'
-  'fzf'
-  'hugo'
-  'node'
-  'npm'
-  'doctl'
-  'minikube'
-  'cloudnuke'
-  'kubernetes-cli'
-  'speedtest-cli'
-  'pure'
-)
-
-for tool in "${brew_cli_tools[@]}"; do
-  brew install "$tool"
-done
-
+brew bundle --global
 echo "Finished brewing! Cheers ✅"
+
 ###############################################################################
 # Install Mac App Store apps                                                  #
 ###############################################################################
-echo "Installing MAC apps"
 
+echo "Installing MAC apps"
 declare -a mas_apps=(
-  '904280696'   # Things
-  '1320666476'  # Wipr
-  '1448916662'  # Step Two
-  '1529448980'  # Reeder
-  '1496543317'  # Book Tracker
-  '497799835'   # Xcode
-  '310633997'   # WhatsApp
-  '1569813296'  # 1Password for Safari
-  '1423210932'  # Flow
-  '1593408455'  # Anybox
-  '1289583905'  # Pixelmator Pro
-  '441258766'   # Magnet
-  '1444636541'  # Photomator
-  '1303222628'  # Paprika Recipe Manager 3
-  '1474335294'  # GoodLinks
-  '1444383602'  # Goodnotes
-  '899247664'   # TestFlight
-  '1508732804'  # Soulver 3
-  '409201541'   # Pages
-  '1055511498'  # Day One
-  '640199958'   # Developer
-  '1160435653'  # AutoMounter
-  '470158793'   # Keka
-  '639968404'   # Parcel
-  '1289197285'  # MindNode
-  '408981434'   # iMovie
-  '409203825'   # Numbers
-  '1091189122'  # Bear
-  '775737590'   # iA Writer
-  '409183694'   # Keynote
-  '1502839586'  # Hand Mirror
-  )
+# Mac App Store apps (via `mas`)
+mas "1448916662"   # Step Two
+mas "1529448980"   # Reeder
+mas "1055511498"   # Day One
+mas "1160435653"   # AutoMounter
+mas "1502839586"   # Hand Mirror
+)
 
 for app in "${mas_apps[@]}"; do
   mas install "$app"
