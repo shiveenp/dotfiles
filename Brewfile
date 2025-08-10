@@ -64,5 +64,6 @@ brew "minikube"
 brew "cloudnuke"
 brew "kubernetes-cli"
 brew "speedtest-cli"
-brew "pure"
+brew "ffmpeg"
+brew "starship"
 
